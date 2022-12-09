@@ -1,4 +1,5 @@
 import strutils
+import ../boolarray
 
 let treeLines = readFile("input.txt").split({'\n'})
 var treeGrid: array[99, array[99, bool]]
@@ -40,18 +41,7 @@ for n in 0 .. treelines[0].high:
             treeGrid[i][n] = visible
             highest = tree
 
-proc `$`(boolean: bool): string =
-    return if boolean: "T" else: "F"
-
-proc `$`(boolArray: array[99, bool]): string =
-    for b in boolArray:
-        result &= $b
-
-proc `$`(arrayArray: array[99, array[99, bool]]): string =
-    for a in arrayArray:
-        result &= $a & '\n'
-
-echo treeGrid
+echo treeGrid.toString()
 
 var visibleTrees = 0
 for n in 0 .. treegrid.high:
