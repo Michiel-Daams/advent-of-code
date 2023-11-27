@@ -3,10 +3,11 @@ package net.daams
 import java.lang.Exception
 
 fun main(args: Array<String>) {
-    val solution: Runnable
+    val solution: Solution
     try {
         val puzzleIndex = args[0].toInt()
-        solution = Class.forName("net.daams.solutions." + args[0]).getDeclaredConstructor().newInstance() as Runnable
+        val input = String(Solution::class.java.getResourceAsStream("/$puzzleIndex.txt",)?.readAllBytes()!!)
+        solution = Class.forName("net.daams.solutions." + args[0]).getDeclaredConstructor(String::class.java).newInstance(input) as Solution
     } catch (e: Exception) {
         println("No valid puzzle index passed as parameter")
         return
