@@ -1,0 +1,1 @@
+/home/michiel/Documents/projects/advent-of-code/2023/src/main/resources/5a.txt
